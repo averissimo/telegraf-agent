@@ -1,4 +1,7 @@
 #!/bin/bash
 
+#echo "$(date):: $@" >> /tmp/unbound.log
 # taken from https://stackoverflow.com/a/42955871/302485
-docker exec -ti pi_unbound.1.$(docker service ps -f 'name=pi_unbound.1' pi_unbound -q --no-trunc | head -n1) /opt/unbound/sbin/unbound-control $@
+#/usr/bin/docker exec pi_unbound.1.$(docker service ps -f 'name=pi_unbound.1' pi_unbound -q --no-trunc | head -n1) /opt/unbound/sbin/unbound-control "$@"
+/usr/bin/docker exec unbound /opt/unbound/sbin/unbound-control "$@"
+
